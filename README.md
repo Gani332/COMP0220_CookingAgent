@@ -265,12 +265,13 @@ Detailed descriptions and execution instructions are provided in `FILE_STRUCTURE
 
 All notebooks are self-contained and include:
 - Dependency installation cells
+- Automated dataset downloads via `gdown` (no manual dataset setup required)
 - Path configuration
 - Inline documentation
 - Checkpoint saving
 - Evaluation metrics
 
-Execution instructions and environment setup are detailed in `FILE_STRUCTURE.md`.
+Execution instructions, dataset sources, and environment setup are detailed in `FILE_STRUCTURE.md` and `DATASET_REQUIREMENTS.md`.
 
 **Estimated Reproduction Time**:
 - With pre-trained models: ~30 minutes (demo)
@@ -336,4 +337,4 @@ This work represents original research conducted for COMP0220 Deep Learning cour
 
 **Submitted for COMP0220 Deep Learning**  
 **University College London**  
-**Academic Year 2024-2025**
+**Academic Year 2025-2026**
