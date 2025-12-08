@@ -1,3 +1,5 @@
 datasets/
 .DS_Store
 .env
+audio/
+/notebooks/llm/CookingBot_TTS.ipynb
