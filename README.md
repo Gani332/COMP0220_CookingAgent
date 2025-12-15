@@ -83,35 +83,24 @@ Trained on Food-316 dataset (316 classes, ~6,676 images):
 - **Explainability**: Integrated visual and linguistic explanations for all predictions
 
 ---
+## Explainability Analysis
 
-## Technical Innovation
+### Visual Explainability (Implemented)
 
-### Multi-Modal Explainability Framework
+**Motivation**  
+Deep learning vision models are often opaque. While Grad-CAM provides insight into spatial attention, these visualisations require interpretation and are not inherently accessible to non-expert users.
 
-**Motivation**: Traditional explainability methods (e.g., Grad-CAM) provide visual attention maps but lack semantic interpretation accessible to non-expert users.
+**Implemented Approach**  
+- Generated Grad-CAM heatmaps for the ingredient classification CNN
+- Visualised spatial regions contributing most to each prediction
+- Analysed prediction confidence alongside attention maps to identify:
+  - meaningful feature focus
+  - systematic failure cases (e.g. visually similar ingredients)
 
-**Approach**: 
-1. Generate Grad-CAM heatmaps showing spatial attention regions
-2. Extract prediction confidence and class information
-3. Pass visual and prediction data to fine-tuned conversational LLM
-4. Generate natural language explanation of model reasoning
+This supported model debugging, validation, and qualitative evaluation of classifier behaviour.
 
-**Example Output**:
-```
-Visual: [Grad-CAM heatmap highlighting fibrous texture regions]
-
-Explanation: "The model identified this ingredient as chicken with 94% 
-confidence by focusing on the characteristic fibrous texture and pale 
-coloration typical of cooked poultry. The attention pattern suggests 
-the model has learned to distinguish chicken from visually similar 
-proteins such as turkey or pork."
-```
-
-**Advantages**:
-- Interpretable to non-technical users
-- Facilitates model debugging and bias detection
-- Enhances user trust through transparency
-- Enables educational applications
+**Future Work**  
+A natural extension of this work would be to pass Grad-CAM visualisations and prediction metadata into the conversational language model, enabling it to generate natural-language explanations of how the classifier identified each ingredient.
 
 ---
 
