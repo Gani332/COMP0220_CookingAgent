@@ -65,7 +65,7 @@ Trained on Food-316 dataset (316 classes, ~6,676 images):
 
 | Model | Architecture | Trainable Parameters | Perplexity | Quality |
 |-------|-------------|---------------------|------------|---------|
-| LSTM Baseline | 2-layer LSTM | 15M | High | Poor |
+| LSTM Baseline | 2-layer LSTM | 7.2M | High | Poor |
 | GPT-2 Recipe | gpt2-medium + LoRA | 0.35M (0.1%) | Low | Excellent |
 | GPT-2 Conversational | gpt2-medium + LoRA | 0.35M (0.1%) | Low | Excellent |
 
