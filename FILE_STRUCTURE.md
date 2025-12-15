@@ -11,40 +11,6 @@ COMP0220_Coursework_Final/
 ├── DATASET_REQUIREMENTS.md                 
 │
 ├── notebooks/
-│   ├── datasets/
-│   │   └── datasets/
-│   │       ├── Cleaned/
-│   │       │   ├── clean_recipes.csv
-│   │       │   ├── conversational_training_data.csv
-│   │       │   ├── nutrition_lookup.csv
-│   │       │   └── recipe_gpt2/
-│   │       │       ├── train/
-│   │       │       │   ├── data-00000-of-00001.arrow
-│   │       │       │   ├── dataset_info.json
-│   │       │       │   └── state.json
-│   │       │       └── val/
-│   │       │           ├── data-00000-of-00001.arrow
-│   │       │           ├── dataset_info.json
-│   │       │           └── state.json
-│   │       ├── OASST1/
-│   │       │   └── processed/
-│   │       │       └── oasst1_multiturn_en/
-│   │       │           ├── samples.txt
-│   │       │           ├── train/
-│   │       │           │   ├── data-00000-of-00001.arrow
-│   │       │           │   ├── dataset_info.json
-│   │       │           │   └── state.json
-│   │       │           └── val/
-│   │       │               ├── data-00000-of-00001.arrow
-│   │       │               ├── dataset_info.json
-│   │       │               └── state.json
-│   │       ├── kaggleFood/
-│   │       │   ├── RAW_recipes.csv
-│   │       │   ├── RAW_interactions.csv
-│   │       │   └── [other Food.com files]
-│   │       └── recipeNLG/
-│   │           └── RecipeNLG_dataset.csv
-│   │
 │   ├── vision/                             
 │   │   ├── 01_Food_Classifier_Training.ipynb
 │   │   ├── 02_GradCAM_Explainability.ipynb
@@ -57,13 +23,12 @@ COMP0220_Coursework_Final/
 │   │   ├── 04_GPT2_Conversational_Training.ipynb
 │   │   ├── 05_Conversational_Dataset_Prep.ipynb
 │   │   └── 06_CookingBot_Testing.ipynb
+|   |   └── 07_CookingBot_RAG.ipynb
+|   |   └── 08_SOTA.ipynb
 │   │
 │   └── integration/                        
-│       ├── 01_Vision_LLM_Integration.ipynb
-│       └── 02_Complete_Fridge_to_Recipe_Pipeline.ipynb
-│
-└── documentation/
-    └── [additional documentation if needed]
+        ├── 01_Vision_LLM_Integration.ipynb
+        └── 02_Complete_Fridge_to_Recipe_Pipeline.ipynb
 ```
 
 ---
@@ -79,17 +44,9 @@ The notebooks expect the following structure in Google Drive:
 │   └── datasets/                           # Dataset files (auto-downloaded via gdown)
 │       ├── Cleaned/
 │       ├── OASST1/
-│       ├── kaggleFood/
-│       └── recipeNLG/
 │
 ├── cooking-assistant-project/
 │   └── models/                             
-│       ├── efficientnet_best.pth          # 21 MB
-│       ├── resnet_best.pth                # 98 MB
-│       ├── label_to_ingredient.json       
-│       ├── ingredient_to_label.json       
-│       ├── test_indices.pkl               
-│       │
 │       ├── lstm_dummy/                    
 │       │   ├── model.pth
 │       │   └── config.json
@@ -125,21 +82,18 @@ The notebooks expect the following structure in Google Drive:
 
 ## Dataset Information
 
-### Included in Submission Package
 
-The `notebooks/datasets/datasets/` directory contains all preprocessed datasets required for training:
-
-| Dataset | Size | Purpose |
-|---------|------|---------|
-| `Cleaned/recipe_gpt2/` | ~87 MB | GPT-2 recipe model training data |
-| `OASST1/processed/` | ~15 KB | GPT-2 conversational model training data |
-| `Cleaned/*.csv` | ~99 MB | Preprocessed recipe and nutrition data |
-| `kaggleFood/` | ~4 GB | Raw Food.com dataset (for preprocessing) |
-| `recipeNLG/` | ~500 MB | Raw RecipeNLG dataset (for preprocessing) |
+| Dataset | Purpose |
+|---------|---------|
+| `Cleaned/recipe_gpt2/` | GPT-2 recipe model training data |
+| `OASST1/processed/` | GPT-2 conversational model training data |
+| `Cleaned/*.csv` | Preprocessed recipe and nutrition data |
+| `kaggleFood/` | Raw Food.com dataset (for preprocessing) |
+| `recipeNLG/` | Raw RecipeNLG dataset (for preprocessing) |
 
 ### Auto-Downloaded Datasets
 
-The Food-316 vision dataset (~2.5 GB) is automatically downloaded from Hugging Face (`Scuccorese/food-ingredients-dataset`) on first execution of vision notebooks.
+The Food-316 vision dataset is automatically downloaded from Hugging Face (`Scuccorese/food-ingredients-dataset`) on first execution of vision notebooks.
 
 ---
 
@@ -149,21 +103,21 @@ The Food-316 vision dataset (~2.5 GB) is automatically downloaded from Hugging F
 
 **Location**: `/content/drive/MyDrive/LLM_Models/cooking-assistant-project/models/`
 
-| File | Size | Description |
-|------|------|-------------|
-| `efficientnet_best.pth` | 21 MB | EfficientNet-B0 trained weights |
-| `resnet_best.pth` | 98 MB | ResNet50 trained weights |
-| `label_to_ingredient.json` | 15 KB | Class index to ingredient name mapping |
-| `ingredient_to_label.json` | 15 KB | Ingredient name to class index mapping |
-| `test_indices.pkl` | 50 KB | Test set split indices |
+| File | Description |
+|------|-------------|
+| `efficientnet_best.pth` | EfficientNet-B0 trained weights |
+| `resnet_best.pth` | ResNet50 trained weights |
+| `label_to_ingredient.json` | Class index to ingredient name mapping |
+| `ingredient_to_label.json` | Ingredient name to class index mapping |
+| `test_indices.pkl` | Test set split indices |
 
 ### YOLO Model
 
 **Location**: `/content/drive/MyDrive/LLM_Models/cooking-assistant-project/models/yolo/`
 
-| File | Size | Description |
-|------|------|-------------|
-| `best.pt` | 50-100 MB | YOLOv8 trained for ingredient detection |
+| File | Description |
+|------|-------------|
+| `best.pt` | YOLOv8 trained for ingredient detection |
 
 ### Language Models
 
@@ -171,23 +125,23 @@ The Food-316 vision dataset (~2.5 GB) is automatically downloaded from Hugging F
 
 **Conversational Model**: `/content/drive/MyDrive/LLM_Models/cooking-assistant-project/models/gpt2-conversational-v1/final/`
 
-| File | Size | Description |
-|------|------|-------------|
-| `adapter_model.safetensors` | 16.5 MB | PEFT/LoRA adapter weights |
-| `config.json` | 1 KB | Model configuration |
-| `tokenizer.json` | 2 MB | Tokenizer vocabulary |
-| `vocab.json` | 779 KB | Vocabulary mappings |
-| `merges.txt` | 446 KB | BPE merge rules |
-| Other files | <1 KB each | Tokenizer configuration |
+| File | Description |
+|------|-------------|
+| `adapter_model.safetensors` | PEFT/LoRA adapter weights |
+| `config.json` | Model configuration |
+| `tokenizer.json` | Tokenizer vocabulary |
+| `vocab.json` | Vocabulary mappings |
+| `merges.txt` | BPE merge rules |
+| Other files | Tokenizer configuration |
 
 ### LSTM Baseline
 
 **Location**: `/content/drive/MyDrive/LLM_Models/cooking-assistant-project/models/lstm_dummy/`
 
-| File | Size | Description |
-|------|------|-------------|
-| `model.pth` | 5 MB | LSTM model weights |
-| `config.json` | <1 KB | Model configuration |
+| File | Description |
+|------|-------------|
+| `model.pth` | LSTM model weights |
+| `config.json` | Model configuration |
 
 ---
 
@@ -209,6 +163,8 @@ The Food-316 vision dataset (~2.5 GB) is automatically downloaded from Hugging F
 2. `llm/03_GPT2_Recipe_Training.ipynb` - Fine-tune GPT-2 for recipe generation
 3. `llm/04_GPT2_Conversational_Training.ipynb` - Fine-tune GPT-2 for conversation
 4. `llm/06_CookingBot_Testing.ipynb` - Evaluate language models
+5. `llm/07_CookingBot_RAG.ipynb` - RAG Implementation
+6. `llm/08_SOTA.ipynb` - GPT-4o SOTA Comparison
 
 **Phase 4: System Integration** (~1 hour)
 1. `integration/01_Vision_LLM_Integration.ipynb` - Integrate vision and language models
@@ -227,14 +183,6 @@ For demonstration purposes with pre-trained models:
 ### Google Colab Environment
 - Python 3.10+
 - CUDA-enabled GPU (recommended for training)
-- 15 GB RAM minimum
-- 50 GB disk space
-
-### Google Drive Storage
-- Models: ~1 GB
-- Datasets: ~5 GB (if including raw data)
-- Outputs: ~500 MB
-- Total: ~6.5 GB
 
 ### External Dependencies
 
@@ -293,16 +241,16 @@ This downloads all required preprocessed datasets (~186 MB) from Google Drive on
 
 ## Storage Requirements Summary
 
-| Component | Size | Location |
-|-----------|------|----------|
-| Vision models | ~120 MB | Google Drive |
-| Language models | ~35 MB | Google Drive |
-| YOLO model | ~75 MB | Google Drive |
-| Preprocessed datasets | ~186 MB | Auto-download |
-| Raw datasets | ~4.5 GB | Optional (for preprocessing) |
-| Food-316 dataset | ~2.5 GB | Auto-download (Hugging Face) |
-| **Total (minimal)** | **~3 GB** | **Colab + Drive** |
-| **Total (with raw data)** | **~7.5 GB** | **Colab + Drive** |
+| Component | Location |
+|-----------|----------|
+| Vision models | Google Drive |
+| Language models | Google Drive |
+| YOLO model | Google Drive |
+| Preprocessed datasets | Auto-download |
+| Raw datasets | Optional (for preprocessing) |
+| Food-316 dataset | Auto-download (Hugging Face) |
+| **Total (minimal)** | **Colab + Drive** |
+| **Total (with raw data)** | **Colab + Drive** |
 
 ---
 
@@ -341,7 +289,7 @@ Clear cached datasets: `!rm -rf ~/.cache/huggingface/`
 ## Submission Contents
 
 This submission package includes:
-- 11 Jupyter notebooks (organized by category)
+- 13 Jupyter notebooks (organized by category)
 - Complete preprocessed datasets
 - Documentation files
 - File structure guide (this document)
