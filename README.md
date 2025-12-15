@@ -162,6 +162,8 @@ This submission includes 11 Jupyter notebooks organized into three categories:
 4. **GPT-2 Conversational Training**: Fine-tuning for explanations
 5. **Conversational Dataset Preparation**: Training data creation
 6. **CookingBot Testing**: Model evaluation and testing
+7. **CookingBot RAG**: RAG Implementation and Testing
+8. **SOTA**: GPT-4o State of the Art model for comparison
 
 ### System Integration (2 notebooks)
 1. **Vision-LLM Integration**: Classifier and language model integration
