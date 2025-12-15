@@ -155,7 +155,7 @@ This submission includes 11 Jupyter notebooks organized into three categories:
 2. **Grad-CAM Explainability**: Visual attention analysis and comparison
 3. **YOLO Object Detection**: Ingredient detection and localization
 
-### Language Models (6 notebooks)
+### Language Models (8 notebooks)
 1. **Data Preprocessing**: Dataset preparation and cleaning
 2. **LSTM Baseline**: Baseline model for comparison
 3. **GPT-2 Recipe Training**: Fine-tuning for recipe generation
