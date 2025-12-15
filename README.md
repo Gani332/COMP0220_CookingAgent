@@ -178,22 +178,17 @@ Detailed descriptions and execution instructions are provided in `FILE_STRUCTURE
 ### Carbon Footprint Analysis
 
 **Training Emissions**:
-- Vision models: ~0.3 kg CO₂ equivalent
-- Language models: ~0.45 kg CO₂ equivalent
-- Total: ~0.75 kg CO₂ equivalent
+- Vision models: ~9.04g CO₂ equivalent
+- Language models: ~12.5g CO₂ equivalent
+- Total: ~21g CO₂ equivalent
 
-**Context**:
-- Equivalent to charging a smartphone 15 times
-- 0.00001% of GPT-3 training emissions (estimated 552 tons CO₂)
-- Comparable to driving a car 3 kilometers
-
-**Inference Emissions**: ~0.0001 kWh per recipe generation (negligible)
+**Inference Emissions**: ~0.12 kWh per recipe generation (negligible)
 
 ### Sustainability Strategies
 
 1. **Model Efficiency**: EfficientNet architecture optimized for parameter efficiency
 2. **Transfer Learning**: Leverages pre-trained models to reduce training requirements
-3. **PEFT/LoRA**: Trains only 0.1% of parameters, reducing compute by 99.9%
+3. **PEFT/LoRA**: Trains only 1% of parameters, reducing compute by 99% +.
 4. **Edge Deployment Potential**: Models small enough for mobile device deployment
 
 ### Societal Impact
@@ -239,17 +234,11 @@ Detailed descriptions and execution instructions are provided in `FILE_STRUCTURE
 ### Current Limitations
 1. Classification accuracy constrained by dataset size and visual similarity between ingredients
 2. Recipe generation limited to training data distribution
-3. Explainability framework requires separate inference pass (increased latency)
-4. System requires internet connectivity for model access
 
 ### Proposed Extensions
 1. Expand training data with additional cuisines and ingredient categories
-2. Implement retrieval-augmented generation for recipe diversity
-3. Optimize explainability generation for real-time performance
-4. Develop mobile application for edge deployment
-5. Incorporate nutritional information and dietary restrictions
-6. Multi-modal input (voice commands, barcode scanning)
-
+2. Optimize explainability generation for real-time performance
+3. Incorporate nutritional information and dietary restrictions
 ---
 
 ## Reproducibility
@@ -284,19 +273,18 @@ Execution instructions, dataset sources, and environment setup are detailed in `
 - ✓ Video/podcast documentation (20-30 minutes)
 
 ### Bonus Features
-- ✓ Vision system integration with language models
-- ✓ Advanced explainability approach (multi-modal XAI)
-- ✓ Production-ready features (error handling, confidence thresholds)
-- ✓ Novel contribution to interpretable AI
-
+- ✓ End-to-end vision–language system integration (YOLO → classifier → recipe LLM)
+- ✓ Confidence-aware pipeline design with tunable detection and classification thresholds
+- ✓ Threshold sensitivity analysis to study precision–recall trade-offs in real fridge images
+- ✓ End-to-end error propagation analysis across vision and language components
+- ✓ Modular, extensible system architecture enabling model swapping and rapid experimentation
+- ✓ Visual explainability using Grad-CAM to analyse classifier attention and failure cases
 ---
 
 ## Documentation
 
 - **FILE_STRUCTURE.md**: Complete file organization and Google Drive setup
 - **DATASET_REQUIREMENTS.md**: Dataset specifications and download instructions
-- **SUBMISSION_CHECKLIST.md**: Final submission verification
-
 ---
 
 ## Acknowledgments
